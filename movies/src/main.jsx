@@ -10,7 +10,7 @@ import FavoriteMoviesPage from "./pages/favouriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-
+import UpcomingMoviesPage from './pages/upcomingMoviesPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +33,7 @@ const App = () => {
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+            <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
