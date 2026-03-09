@@ -5,11 +5,12 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavourites'
 
-
 const HomePage = (props) => {
 
   const { data, error, isPending, isError  } = useQuery({
+    //React Query will cache result under this key
     queryKey: ['discover'],
+    //function that fetches the data
     queryFn: getMovies,
   })
   
@@ -21,6 +22,7 @@ const HomePage = (props) => {
     return <h1>{error.message}</h1>
   }  
   
+  //extracts movies array from tmdb response
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.

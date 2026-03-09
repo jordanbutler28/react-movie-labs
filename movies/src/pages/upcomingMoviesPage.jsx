@@ -22,7 +22,11 @@ const UpcomingMoviesPage = () => {
   const movies = data.results;
 
   return (
-    <p>upcoming movies</p>
+    <PageTemplate
+      title="Upcoming Movies"
+      movies={movies}
+      action={() => null}
+    />
   );
 
 };
