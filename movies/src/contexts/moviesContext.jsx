@@ -5,15 +5,20 @@ export const MoviesContext = React.createContext(null);
 const MoviesContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] )
   const [myReviews, setMyReviews] = useState( {} ) 
+  const [mustWatchs, setWatchlist] = useState( [] )
 
   const addToFavorites = (movie) => {
     let newFavorites = [];
+    //checks if movie id is not already in the array of favourites
     if (!favorites.includes(movie.id)){
+      //...favourites is a spread operator. it makes a copy of the existing favourites array and adds additional movie id to new array
       newFavorites = [...favorites, movie.id];
     }
     else{
+      //just copies existing array
       newFavorites = [...favorites];
     }
+    //updates the array and re-renders component
     setFavorites(newFavorites)
   };
   
@@ -28,6 +33,19 @@ const MoviesContextProvider = (props) => {
   };
   //console.log(myReviews);
 
+  const addToWatchlist = (movie) => {
+    let newWatchlist = [];
+    if (!mustWatchs.includes(movie.id)){
+      newWatchlist = [...mustWatchs, movie.id];
+    }
+    else{
+      newWatchlist = [...mustWatchs];
+    }
+    setWatchlist(newWatchlist)
+  };
+
+  console.log(mustWatchs);
+
 
    return (
     <MoviesContext.Provider
@@ -36,6 +54,8 @@ const MoviesContextProvider = (props) => {
         addToFavorites,
         removeFromFavorites,
         addReview,
+        addToWatchlist,
+        mustWatchs
       }}
     >
       {props.children}
