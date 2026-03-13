@@ -1,15 +1,15 @@
 import React from "react";
-import { getTopRatedMovies } from "../api/tmdb-api";
+import { getNowPlayingMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 
 
-const topRatedMoviesPage = () => {
+const MoviesInCinemasPage = () => {
 
   const { data, error, isPending, isError  } = useQuery({
-    queryKey: ['topRatedMovies'],
-    queryFn: getTopRatedMovies,
+    queryKey: ['nowPlayingMovies'],
+    queryFn: getNowPlayingMovies,
   })
   
   if (isPending) {
@@ -24,11 +24,11 @@ const topRatedMoviesPage = () => {
 
   return (
     <PageTemplate
-      title="Top Rated Movies"
+      title="Movies In Cinemas Now"
       movies={movies}
       action={() => null}
     />
   );
 
 };
-export default topRatedMoviesPage;
+export default MoviesInCinemasPage;
