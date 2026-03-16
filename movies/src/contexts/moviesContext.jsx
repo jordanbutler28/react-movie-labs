@@ -24,7 +24,7 @@ const MoviesContextProvider = (props) => {
   
   const removeFromFavorites = (movie) => {
     setFavorites( favorites.filter(
-      (mId) => mId !== movie.id
+      (mId) => mId !== movie.id //filter movies array to remove ID that matches clicked movie id
     ) )
   };
 

@@ -10,6 +10,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import Button from "@mui/material/Button";
 
 const root = {
     display: "flex",
@@ -68,6 +69,9 @@ const [drawerOpen, setDrawerOpen] = useState(false);
             </li>
           ))}
       </Paper>
+      <Button variant="contained" color="secondary" href={`/movies/${movie.id}/recommendations`}>
+          Recommendations
+      </Button>
       <Fab
         color="secondary"
         variant="extended"
