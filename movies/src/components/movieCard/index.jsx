@@ -16,10 +16,9 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router";
 import Avatar from '@mui/material/Avatar';
 
-
 export default function MovieCard({ movie, action }) {
 
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites, addToFavorites, mustWatchs, addToWatchlist } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
@@ -27,11 +26,21 @@ export default function MovieCard({ movie, action }) {
     movie.favorite = false
   }
 
+  if (mustWatchs.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else {
+    movie.mustWatch = false
+  }
+
   const handleAddToFavorite = (e) => {
     e.preventDefault();
     addToFavorites(movie);
   };
 
+  const handleAddToWatchlist = (e) => {
+    e.preventDefault();
+    addToWatchlist(movie);
+  };
 
   return (
     <Card>
