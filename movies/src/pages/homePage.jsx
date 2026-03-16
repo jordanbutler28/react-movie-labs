@@ -31,6 +31,7 @@ const HomePage = (props) => {
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
 
+  //unsure if this is necessary
   const mustWatchs = movies.filter(m => m.mustWatch)
   localStorage.setItem('mustWatchs', JSON.stringify(mustWatchs))
   const addToWatchlist = (movieId) => true 
