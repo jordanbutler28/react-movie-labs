@@ -71,7 +71,6 @@ const SiteHeader = () => {
             onClick={goHome} 
             sx={{ flexGrow: 1, cursor: "pointer", display: "flex", alignItems: "center", gap: 1 }}>
             Media Hub
-            <AppLogo sx={{fontSize: 40, padding: 2}} />
           </Typography>
             {isMobile ? (
               <>
@@ -142,7 +141,7 @@ const SiteHeader = () => {
                   </MenuItem>
                   ))}
                 </Menu>
-                
+
                 {menuOptions.map((opt) => (
                   <Button
                     key={opt.label}
