@@ -1,12 +1,12 @@
 import React from "react";
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router'; //gets paramters from url
 import { getMovieRecommendations } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import Spinner from '../components/spinner';
 
 const MovieRecommendationsPage = (props) => {
-  const { id } = useParams();
+  const { id } = useParams(); 
   const { data, error, isPending, isError  } = useQuery({
       queryKey: ['MovieRecommendations', { id }],
       queryFn: getMovieRecommendations,
