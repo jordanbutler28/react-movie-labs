@@ -24,7 +24,7 @@ const Header = (props ) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
-      <Typography variant="h4" component="h3">
+      <Typography variant="h4" component="h3" sx={{ padding: "0.5em" }}>
         {title}
       </Typography>
 
