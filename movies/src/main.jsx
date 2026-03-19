@@ -34,7 +34,20 @@ const theme = createTheme({
     h4: {
       fontFamily: 'Prosto One',
       padding: ".2em",
-  }}
+    },
+    h5: {
+      fontFamily: 'Pontano Sans',}},
+  palette: {
+    primary: {
+      main: '#C5456F',
+    },
+    secondary: {
+      main: '#CEE198',
+    },
+    accent: {
+      main: '#82D26F',
+    },
+  },
 });
 
 const App = () => {
