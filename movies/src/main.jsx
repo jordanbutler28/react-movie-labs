@@ -47,7 +47,7 @@ const theme = createTheme({
     accent: {
       main: '#82D26F',
     },
-  },
+  }
 });
 
 const App = () => {
