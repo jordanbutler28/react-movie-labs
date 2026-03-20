@@ -6,6 +6,7 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
+import Grid from "@mui/material/Grid";
 
 const FavoriteMoviesPage = () => {
   const {favorites: movieIds } = useContext(MoviesContext);

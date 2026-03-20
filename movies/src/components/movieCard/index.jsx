@@ -95,7 +95,7 @@ export default function MovieCard({ movie, action }) {
           {action(movie)}
       
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="contained" size="medium" color="secondary" disableElevation>
+          <Button variant="contained" size="medium" color="secondary" sx={{ marginLeft: 1 }} disableElevation>
              More Info ...
           </Button>
         </Link>

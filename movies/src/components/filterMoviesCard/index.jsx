@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getGenres } from "../../api/tmdb-api";
 import Spinner from '../spinner';
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import InputLabel from "@mui/material/InputLabel";
@@ -12,12 +11,14 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
+import Grid from "@mui/material/Grid";
 
 const formControl = 
   {
     margin: 1,
     minWidth: "90%",
+    backgroundColor: "#f0efef",
+    borderRadius: 2,
   };
 
 export default function FilterMoviesCard(props) {
@@ -53,34 +54,41 @@ export default function FilterMoviesCard(props) {
   };
 
   return (
-    <Card 
-      sx={{
-        backgroundColor: "secondary.main"
-      }} 
-      variant="outlined">
+    <Card sx={{backgroundColor: "secondary.main"}} >
       <CardContent>
+      
+      <Grid container sx={{ justifyContent: "center" }}>
         <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="medium" />
-          Filter
+          Search
+          <SearchIcon fontSize="medium" sx={{ marginLeft: 1 }} />
         </Typography>
-            <TextField
+      </Grid>
+
+        <TextField
             sx={{...formControl}}
             id="filled-search"
-            label="Search field"
+            label="Search Movie Title"
             type="search"
             variant="outlined"
             value={props.titleFilter}
             onChange={handleTextChange}
-            />
-          <FormControl sx={{...formControl}}>
-            <InputLabel id="genre-label">Genre</InputLabel>
+        />
+
+        <Grid container sx={{ justifyContent: "center" }}>
+        <Typography variant="h5" component="h1">
+          Genre
+        </Typography>
+        </Grid>
+
+        <FormControl sx={{...formControl}}>
+            <InputLabel id="genre-label"></InputLabel>
               <Select
               labelId="genre-label"
               id="genre-select"
               defaultValue=""
               value={props.genreFilter}
               onChange={handleGenreChange}
-          >
+        >
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
@@ -88,14 +96,10 @@ export default function FilterMoviesCard(props) {
                 </MenuItem>
               );
             })}
-          </Select>
+            </Select>
         </FormControl>
+
       </CardContent>
-      <CardMedia
-        sx={{ height: 300 }}
-        image={img}
-        title="Filter"
-      />
     </Card>
   );
 }
