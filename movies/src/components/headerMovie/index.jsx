@@ -4,7 +4,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import HomeIcon from "@mui/icons-material/Home";
+import TrailerIcon from '@mui/icons-material/Slideshow';
 import { useNavigate } from "react-router";
 
 const MovieHeader = (props) => {
@@ -28,10 +28,6 @@ const MovieHeader = (props) => {
 
       <Typography variant="h4" component="h3">
         {movie.title}
-        <a href={movie.homepage}>
-          <HomeIcon color="primary" />
-        </a>
-        <br />
         <span sx={{ fontSize: "1.5rem" }}>{`   "${movie.tagline}"`} </span>
       </Typography>
 

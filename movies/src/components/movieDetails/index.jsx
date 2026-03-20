@@ -11,6 +11,9 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import Button from "@mui/material/Button";
+import TrailerIcon from '@mui/icons-material/Slideshow';
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
 
 const root = {
     display: "flex",
@@ -18,8 +21,9 @@ const root = {
     flexWrap: "wrap",
     listStyle: "none",
     padding: 1.5,
-    margin: 0,
+    marginTop: 2.5,
 };
+
 const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  
@@ -27,14 +31,21 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-      <Typography variant="h5" component="h3">
-        Overview
+    <Paper sx={{ padding: 2, marginTop: 2 }}>
+
+      <Typography variant="h5" component="h3" sx={{ fontWeight: "bold" }}>
+        Overview 
+        <a href={movie.homepage}>
+          <TrailerIcon color="primary" sx={{marginLeft:2}}/>
+        </a>
       </Typography>
 
-      <Typography variant="h6" component="p">
-        {movie.overview}
+      <Typography variant="h6" component="p" sx={{ marginTop: 2 }}>
+        {movie.overview} 
       </Typography>
 
+    </Paper>
+      
       <Paper 
         component="ul" 
         sx={{...root}}
@@ -47,17 +58,10 @@ const [drawerOpen, setDrawerOpen] = useState(false);
             <Chip label={g.name} sx={{...chip}} />
           </li>
         ))}
-      </Paper>
-      <Paper component="ul" sx={{...root}}>
+
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count})`}
-        />
+        <Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`}/>
+        <Chip icon={<StarRate />} label={`${movie.vote_average} (${movie.vote_count})`}/>
         <Chip label={`Released: ${movie.release_date}`} />
         
         <li>
@@ -68,10 +72,13 @@ const [drawerOpen, setDrawerOpen] = useState(false);
               <Chip label={country.name} sx={{...chip}} />
             </li>
           ))}
+
       </Paper>
-      <Button variant="contained" color="secondary" href={`/movies/${movie.id}/recommendations`}>
+      
+      <Button variant="contained" color="secondary" href={`/movies/${movie.id}/recommendations`} sx={{ marginTop: 2 }}>
           Recommendations
       </Button>
+
       <Fab
         color="secondary"
         variant="extended"
