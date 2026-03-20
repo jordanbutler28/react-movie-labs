@@ -12,8 +12,7 @@ import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import Button from "@mui/material/Button";
 import TrailerIcon from '@mui/icons-material/Slideshow';
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
+import Tooltip from "@mui/material/Tooltip";
 
 const root = {
     display: "flex",
@@ -35,9 +34,11 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
       <Typography variant="h5" component="h3" sx={{ fontWeight: "bold" }}>
         Overview 
+        <Tooltip title="Watch the movie">
         <a href={movie.homepage}>
           <TrailerIcon color="primary" sx={{marginLeft:2}}/>
         </a>
+        </Tooltip>
       </Typography>
 
       <Typography variant="h6" component="p" sx={{ marginTop: 2 }}>
@@ -75,9 +76,11 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
       </Paper>
       
-      <Button variant="contained" color="secondary" href={`/movies/${movie.id}/recommendations`} sx={{ marginTop: 2 }}>
-          Recommendations
-      </Button>
+      <Tooltip title="See recommended movies">
+        <Button variant="contained" color="secondary" size="large" href={`/movies/${movie.id}/recommendations`} sx={{ marginTop: 2 }}>
+            Recommendations
+        </Button>
+      </Tooltip>
 
       <Fab
         color="secondary"
