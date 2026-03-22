@@ -3,12 +3,11 @@ import MovieCastCard from "../movieCastCard";
 import Grid from "@mui/material/Grid";
 
 const CastList = (props) => {
-    
-  const actingCast = props.casts.filter(
-    (c) => c.known_for_department === "Acting"
-  );
+  //turn data into multiple ui cards
+  const actingCast = props.casts.filter((c) => c.known_for_department === "Acting");
 
   let castCards = actingCast.map((c) => (
+    //each actor gets a card
     <Grid
       key={c.id}
       size={{ xs: 12, sm: 6, md: 4, lg: 3, xl: 2 }}

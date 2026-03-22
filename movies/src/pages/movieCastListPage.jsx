@@ -14,6 +14,7 @@ const CastListPage = (props) => {
     queryKey: ['movieCredits', {id}],
     //function that fetches the data
     queryFn: getMovieCredits,
+    //getMovieCreits(id)
   })
   
   if (isPending) {
@@ -24,7 +25,7 @@ const CastListPage = (props) => {
     return <h1>{error.message}</h1>
   }  
   
-  //extracts movies array from tmdb response
+  //extracts cast array from tmdb response
   const cast = data.cast;
 
   return (
