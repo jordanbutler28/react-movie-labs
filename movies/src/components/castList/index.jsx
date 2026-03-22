@@ -3,6 +3,7 @@ import MovieCastCard from "../movieCastCard";
 import Grid from "@mui/material/Grid";
 
 const CastList = (props) => {
+    
   const actingCast = props.casts.filter(
     (c) => c.known_for_department === "Acting"
   );

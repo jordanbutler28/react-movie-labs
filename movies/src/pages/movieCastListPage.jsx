@@ -25,12 +25,12 @@ const CastListPage = (props) => {
   }  
   
   //extracts movies array from tmdb response
-  const cast = data.results;
+  const cast = data.cast;
 
   return (
     <PageTemplate
       title="Cast List"
-      cast={cast}
+      casts={cast}
     />
   );
 

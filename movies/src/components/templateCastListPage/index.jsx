@@ -3,18 +3,10 @@ import Grid from "@mui/material/Grid";
 import CastList from "../castList";
 import Header from "../headerMovieList";
 
-function CastListPageTemplate({ cast, title }) {
-  const [nameFilter, setNameFilter] = useState("");
+function CastListPageTemplate({ casts, title }) {
 
-  let displayedCast = cast
-    .filter((c) =>
-      c.name.toLowerCase().includes(nameFilter.toLowerCase())
-    )
+  let displayedCast = casts
     .filter((c) => c.known_for_department === "Acting");
-
-  const handleChange = (e) => {
-    setNameFilter(e.target.value);
-  };
 
   return (
     <Grid container>
@@ -23,7 +15,7 @@ function CastListPageTemplate({ cast, title }) {
       </Grid>
 
       <Grid container sx={{ flex: "1 1 500px" }}>
-        <CastList cast={displayedCast} />
+        <CastList casts={displayedCast} />
       </Grid>
     </Grid>
   );
