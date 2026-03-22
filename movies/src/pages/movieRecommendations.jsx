@@ -4,6 +4,8 @@ import { useParams } from 'react-router'; //gets paramters from url
 import { getMovieRecommendations } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import Spinner from '../components/spinner';
+import AddToFavoritesIcon from '../components/cardIcons/addToFavourites';
+import AddToWatchlistIcon from '../components/cardIcons/addToWatchlistIcon';
 
 const MovieRecommendationsPage = (props) => {
   const { id } = useParams(); 
@@ -26,7 +28,15 @@ const MovieRecommendationsPage = (props) => {
     <PageTemplate
       title="Recommended Movies"
       movies={movies}
-      action={() => null}
+      action={(movie) => {
+        return (
+          <>
+            <AddToFavoritesIcon movie={movie} />
+            <AddToWatchlistIcon movie={movie} />
+          </>
+        );
+          
+      }}
     />
   );
 
