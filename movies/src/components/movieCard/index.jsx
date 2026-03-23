@@ -1,5 +1,6 @@
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
+import { Link } from "react-router";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,7 +14,6 @@ import StarIcon from '@mui/icons-material/StarRounded';
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
-import { Link } from "react-router";
 import Avatar from '@mui/material/Avatar';
 
 export default function MovieCard({ movie, action }) {
@@ -42,6 +42,9 @@ export default function MovieCard({ movie, action }) {
     addToWatchlist(movie);
   };
 
+  //to round vote average to 1 decimal place
+  const voteAvgRating = movie.vote_average.toFixed(1); 
+
   return (
     <Card>
       <CardHeader
@@ -54,14 +57,17 @@ export default function MovieCard({ movie, action }) {
         }
       />
 
-      <CardMedia
-        sx={{ height: 500 }}
-        image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : img
-        }
-      />
+      <Link to={`/movies/${movie.id}`}>
+        <CardMedia
+          sx={{ height: 350 }}
+          image={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              : img
+          }
+        />
+      </Link>
+
       <CardContent>
         <Grid container spacing={1}>
           <Grid item xs={12}>
@@ -82,7 +88,7 @@ export default function MovieCard({ movie, action }) {
             <Grid item xs={7}>
               <Typography variant="h6">
                 <StarIcon />
-                {"  "} {movie.vote_average}
+                {"  "} {voteAvgRating}
               </Typography>
             </Grid>
           </Grid>
@@ -96,7 +102,7 @@ export default function MovieCard({ movie, action }) {
       
         <Link to={`/movies/${movie.id}`}>
           <Button variant="contained" size="medium" color="secondary" sx={{ marginLeft: 1 }} disableElevation>
-             More Info ...
+             More Info
           </Button>
         </Link>
         

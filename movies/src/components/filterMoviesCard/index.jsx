@@ -35,6 +35,7 @@ export default function FilterMoviesCard(props) {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+
   const genres = data.genres;
   if (genres[0].name !== "All"){
     genres.unshift({ id: "0", name: "All" });
@@ -55,14 +56,14 @@ export default function FilterMoviesCard(props) {
 
   return (
     <Card sx={{backgroundColor: "secondary.main"}} >
-      <CardContent>
       
-      <Grid container sx={{ justifyContent: "center" }}>
-        <Typography variant="h5" component="h1">
-          Search
-          <SearchIcon fontSize="medium" sx={{ marginLeft: 1 }} />
-        </Typography>
-      </Grid>
+      <CardContent>
+        <Grid container sx={{ justifyContent: "center" }}>
+          <Typography variant="h5" component="h1">
+            Search
+            <SearchIcon fontSize="medium" sx={{ marginLeft: 1 }} />
+          </Typography>
+        </Grid>
 
         <TextField
             sx={{...formControl}}
@@ -75,9 +76,7 @@ export default function FilterMoviesCard(props) {
         />
 
         <Grid container sx={{ justifyContent: "center" }}>
-        <Typography variant="h5" component="h1">
-          Genre
-        </Typography>
+          <Typography variant="h5" component="h1"> Genre </Typography>
         </Grid>
 
         <FormControl sx={{...formControl}}>
@@ -88,7 +87,7 @@ export default function FilterMoviesCard(props) {
               defaultValue=""
               value={props.genreFilter}
               onChange={handleGenreChange}
-        >
+              >
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
@@ -96,7 +95,7 @@ export default function FilterMoviesCard(props) {
                 </MenuItem>
               );
             })}
-            </Select>
+             </Select>
         </FormControl>
 
       </CardContent>
