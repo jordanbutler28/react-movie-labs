@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Slider from "@mui/material/Slider";
 import Grid from "@mui/material/Grid";
 
 const formControl = 
@@ -53,6 +54,10 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
+
+  const handleRatingChange = (e, value) => {
+  handleChange(e, "rating", value);
+};
 
   return (
     <Card sx={{backgroundColor: "secondary.main"}} >
@@ -97,6 +102,21 @@ export default function FilterMoviesCard(props) {
             })}
              </Select>
         </FormControl>
+
+        <Grid container sx={{ justifyContent: "center" }}>
+          <Typography variant="h5" component="h1"> Rating </Typography>
+        </Grid>
+
+        <Slider
+          aria-label="Rating Filter Slider"
+          value = {props.ratingFilter}
+          onChange={handleRatingChange}
+          valueLabelDisplay="auto"
+          step={1}
+          marks
+          min={0}
+          max={10}
+        />
 
       </CardContent>
     </Card>
