@@ -17,8 +17,8 @@ export default function MovieCastCard({ credits }) {
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <Paper variant="elevation" square= "false" 
-                    sx={{
-                        width: 300, 
+                    sx={{ 
+                        minWidth: 300,
                         height: 100,
                         padding: 2,
                         display: 'flex', 
@@ -27,7 +27,7 @@ export default function MovieCastCard({ credits }) {
                     <Stack direction="row" spacing={2} alignItems="center">
                         <Avatar src={`https://image.tmdb.org/t/p/w500${credits.profile_path}`} sx={{ width: 95, height: 95}}></Avatar>
                         <Stack>
-                            <Typography variant="h5">{credits.name}</Typography>
+                            <Typography variant="h6">{credits.name}</Typography>
                             <Typography>{credits.character}</Typography>
                         </Stack>
                     </Stack>
