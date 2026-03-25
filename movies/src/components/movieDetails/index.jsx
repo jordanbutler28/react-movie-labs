@@ -78,13 +78,13 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       
       <Tooltip title="See recommended movies">
         <Button variant="contained" color="secondary" size="large" href={`/movies/${movie.id}/recommendations`} sx={{ marginTop: 1 }}>
-            Recommendations
+            Recommended
         </Button>
       </Tooltip>
 
       <Tooltip title="See movie credits">
         <Button variant="contained" color="secondary" size="large" href={`/movies/${movie.id}/cast`} sx={{ marginTop: 1, marginLeft: 2 }}>
-            Credits
+            Cast List
         </Button>
       </Tooltip>    
 

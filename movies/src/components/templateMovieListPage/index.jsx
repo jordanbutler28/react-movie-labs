@@ -10,7 +10,7 @@ function MovieListPageTemplate({ movies, title, action }) {
   const genreId = Number(genreFilter);
 
   //rating filter
-  const [ratingFilter, setRatingFilter] = useState(10);
+  const [ratingFilter, setRatingFilter] = useState(0);
   const rating = Number(ratingFilter);
 
   let displayedMovies = movies
@@ -21,7 +21,7 @@ function MovieListPageTemplate({ movies, title, action }) {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     })
     .filter((m) => {
-      return m.vote_average <= rating;
+      return m.vote_average >= rating;
     });
 
   const handleChange = (type, value) => {

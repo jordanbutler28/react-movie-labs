@@ -29,7 +29,7 @@ const SiteHeader = () => {
   const goHome = () => {navigate("/");};
 
   const menuOptions = [
-    { label: "Favorites", path: "/movies/favorites" },
+    { label: "Favourites", path: "/movies/favorites" },
     { label: "Watchlist", path: "/movies/watchlist" },
   ];
 
