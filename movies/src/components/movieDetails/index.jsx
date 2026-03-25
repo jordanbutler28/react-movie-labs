@@ -21,9 +21,11 @@ const root = {
     listStyle: "none",
     padding: 1.5,
     marginTop: 2.5,
+    gap: 0.5,
+    alignItems: "center"
 };
 
-const chip = { margin: 0.5 };
+const chip = { margin: 0.5, display: "flex" };
 
 const MovieDetails = ({ movie }) => {  
 const [drawerOpen, setDrawerOpen] = useState(false);
@@ -60,10 +62,10 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           </li>
         ))}
 
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`}/>
-        <Chip icon={<StarRate />} label={`${movie.vote_average} (${movie.vote_count})`}/>
-        <Chip label={`Released: ${movie.release_date}`} />
+        <li><Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} /></li>
+        <li><Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`}/></li>
+        <li><Chip icon={<StarRate />} label={`${movie.vote_average} (${movie.vote_count})`}/></li>
+        <li><Chip label={`Released: ${movie.release_date}`} /></li>
         
         <li>
         <Chip label="Production Countries" sx={{...chip}} color="primary" />
