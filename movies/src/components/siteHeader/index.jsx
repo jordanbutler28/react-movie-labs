@@ -66,6 +66,7 @@ const SiteHeader = () => {
     <>
       <AppBar position="fixed" color="primary">
         <Toolbar>
+          <AppLogo sx={{width: 50, height: 45}}></AppLogo>
           <Typography 
             variant="h4" 
             onClick={goHome} 
